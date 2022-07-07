@@ -19,7 +19,10 @@ class ScoreKeeper extends Component {
 
   render() {
     return (
-      <div>ScoreKeeper</div>
+      <div>
+        <h1>Score is: {this.state.score}</h1>
+        <button onClick={this.incrementScore}>Single Kill</button>
+      </div>
     )
   }
 }

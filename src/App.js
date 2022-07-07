@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import ScoreKeeper from './components/scoreKeeper/ScoreKeeper';
 import './App.css';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           Learn React
         </a>
       </header> */}
+
+      <ScoreKeeper/>
     </div>
   );
 }
