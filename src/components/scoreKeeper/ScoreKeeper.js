@@ -15,6 +15,10 @@ class ScoreKeeper extends Component {
 
     tripleIncrementScore(e){
         console.log('tripleIncrementScore...');
+        /// using  this.setState(callback)...
+        this.setState(currentState => {return {score: currentState.score + 1}});
+        this.setState(currentState => {return {score: currentState.score + 1}});
+        this.setState(currentState => {return {score: currentState.score + 1}});
     }
 
   render() {
@@ -22,6 +26,7 @@ class ScoreKeeper extends Component {
       <div>
         <h1>Score is: {this.state.score}</h1>
         <button onClick={this.incrementScore}>Single Kill</button>
+        <button onClick={this.tripleIncrementScore}>Triple Kill</button>
       </div>
     )
   }
