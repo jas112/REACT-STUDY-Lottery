@@ -20,14 +20,29 @@ export class Lottery extends Component {
     this.generatePowerLotto = this.generatePowerLotto.bind(this);
     }
 
+    numberMaxSort(arr){
+        console.log(`${arr}`);
+        for (let idx = 0; idx < arr.length; idx++) {
+            for (let ndex = idx+1 ; ndex < arr.length; ndex++) {
+                if (arr[idx].number > arr[ndex].number) {
+                    let temp = arr[ndex];
+                    arr[ndex] = arr[idx];
+                    arr[idx] = temp;
+                }
+            }
+        }
+        console.log(`${arr}`);
+        return arr;
+    }
+
     lottoBallHelper(lotto){
     let numObject = {};
     let lottoBall;
 
     if(lotto == 'mega'){
-        lottoBall = Math.floor(Math.random()*this.props.megaMax + 1);
+        lottoBall = Math.floor(Math.random()*this.props.megaMax) + 1;
     }else{
-        lottoBall = Math.floor(Math.random()*this.props.powerMax + 1);
+        lottoBall = Math.floor(Math.random()*this.props.powerMax) + 1;
     }
 
     numObject['number'] = lottoBall;
@@ -40,15 +55,17 @@ export class Lottery extends Component {
     let lottoNumbers = [];
     for (let i = 0; i < 5; i++) {
         let numObject = {};
-        let numValue = Math.floor(Math.random()*this.props.numberMax);
+        let numValue = Math.floor(Math.random()*this.props.numberMax) + 1;
         numObject['number'] = numValue;
         numObject['ballType'] = 'regular-draw';
         lottoNumbers.push(numObject);
     }
+
+    let sortedLottoNumbers = this.numberMaxSort(lottoNumbers);
     
-    lottoNumbers.push(this.lottoBallHelper(lotto));
+    sortedLottoNumbers.push(this.lottoBallHelper(lotto));
     
-    return lottoNumbers;
+    return sortedLottoNumbers;
     }
 
     generateMegaLotto(){
