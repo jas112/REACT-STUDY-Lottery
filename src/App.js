@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import ScoreKeeper from './components/scoreKeeper/ScoreKeeper';
+import IconList from './components/iconList/IconList';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       </header> */}
 
       <ScoreKeeper/>
+      <IconList/>
     </div>
   );
 }

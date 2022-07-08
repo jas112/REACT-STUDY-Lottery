@@ -26,20 +26,34 @@ export class IconList extends Component {
         this.addIcon = this.addIcon.bind(this);
     }
 
-    addIcon(){
-        const iconIdx = Math.floor(Math.random()*this.props.options.legth);
-        const randomIcon = this.props.options[iconIdx];
-        const newIcons = this.state.icons;
-        newIcons.push(randomIcon);
-        this.setState({icons: newIcons});
+    // addIcon(){
+    //     let iconIdx = Math.floor(Math.random()*this.props.options.legth);
+    //     let randomIcon = this.props.options[iconIdx];
+    //     let newIcons = this.state.icons;
+    //     newIcons.push(randomIcon);
+    //     this.setState({icons: newIcons});
 
+    // }
+
+    addIcon(){
+        let iconIdx = Math.floor(Math.random()*this.props.options.length);
+        let randomIcon = this.props.options[iconIdx];
+        this.setState({icons: [...this.state.icons, randomIcon]});
     }
 
   render() {
+
+    const icons = this.state.icons.map(i => <i className={`fas fa-${i}`} key={i} />);
+
     return (
-      <div>IconList</div>
+        <div>
+            <h1>Icon List</h1>
+            <button onClick={this.addIcon}>Add New Icon</button>
+            <h1>{icons}</h1>
+
+        </div>
     )
   }
 }
 
-export default IconList
+export default IconList;
