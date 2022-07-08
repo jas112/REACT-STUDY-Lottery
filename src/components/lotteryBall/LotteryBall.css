@@ -1,0 +1,28 @@
+.LottoBall{
+    width: 80px;
+    height: 80px;
+    box-shadow: 4px 0px 15px #00000050;
+    border-radius: 40px;
+    margin: 10px auto;
+    padding: 0px 0px 0px 0px;
+    overflow: hidden;
+    text-decoration: center;
+    background-color: #f04021;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.LottoBall-mm-sBall{
+    background-color: #f2a71c;
+    color: black;
+}
+
+.LottoBall-pb-sBall{
+    background-color: #000000;
+    color: #ffffff;
+}

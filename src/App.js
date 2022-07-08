@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import ScoreKeeper from './components/scoreKeeper/ScoreKeeper';
 import IconList from './components/iconList/IconList';
+import Lottery from './components/lottery/Lottery';
 import './App.css';
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
         </a>
       </header> */}
 
-      <ScoreKeeper/>
-      <IconList/>
+      {/* <ScoreKeeper/> */}
+      {/* <IconList/> */}
+      <Lottery/>
     </div>
   );
 }

@@ -1,0 +1,27 @@
+.Lottery{
+    width: 850px;
+    max-width: 90%;
+    box-shadow: 4px 0px 15px #00000050;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 25px 0px 25px 0px;
+    overflow: hidden;
+    text-decoration: center;
+    background-color: #ffffff;
+}
+
+.Lottery-number-display{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px 10px 25px 10px;
+}
+
+.Lottery-button{
+    width:90%;
+    height: 34px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+}
