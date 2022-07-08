@@ -22,7 +22,10 @@ export class IconList extends Component {
     
     constructor(props){
         super(props);
-        this.state = {icons: []};
+        this.state = {
+            iconKey: 0, 
+            icons: []
+        };
         this.addIcon = this.addIcon.bind(this);
     }
 
@@ -38,12 +41,14 @@ export class IconList extends Component {
     addIcon(){
         let iconIdx = Math.floor(Math.random()*this.props.options.length);
         let randomIcon = this.props.options[iconIdx];
-        this.setState({icons: [...this.state.icons, randomIcon]});
+        let newKey = this.state.iconKey + 1;
+        console.log(newKey);
+        this.setState({iconKey: newKey, icons: [...this.state.icons, randomIcon]});
     }
 
   render() {
 
-    const icons = this.state.icons.map(i => <i className={`fas fa-${i}`} key={i} />);
+    const icons = this.state.icons.map(i => <i className={`fas fa-${i}`} key={`${this.state.iconKey}${i}`} />);
 
     return (
         <div>
