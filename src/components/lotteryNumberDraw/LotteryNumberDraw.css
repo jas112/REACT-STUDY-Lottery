@@ -1,0 +1,35 @@
+.LotteryNumberDraw{
+    width:95%;
+    max-width: 95%;
+    min-width: 100px;
+    box-shadow: 4px 0px 15px #00000050;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 5px 0px 5px 0px;
+    overflow: hidden;
+    text-decoration: center;
+    background-color: #ffffff;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.LotteryNumberDraw-numberValue{
+    width:11%;
+    max-width: 11%;
+    min-width: 20px;
+    box-shadow: 4px 0px 15px #00000050;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px 0px 10px 0px;
+    overflow: hidden;
+    text-decoration: center;
+    background-color: #ffffff;
+    font-size: .8em;
+    font-weight: bold;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}

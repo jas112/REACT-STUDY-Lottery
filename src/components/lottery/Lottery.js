@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LotteryBall from '../lotteryBall/LotteryBall';
+import LotteryNumberDraw from '../lotteryNumberDraw/LotteryNumberDraw';
 import './Lottery.css';
 
 export class Lottery extends Component {
@@ -14,7 +15,9 @@ export class Lottery extends Component {
     super(props);
     this.state = {
         megaNumbers: [],
-        powerNumbers: []
+        megaNumberArchive: [],
+        powerNumbers: [],
+        powerNumberArchive: []
     };
     this.generateMegaLotto = this.generateMegaLotto.bind(this);
     this.generatePowerLotto = this.generatePowerLotto.bind(this);
@@ -69,32 +72,44 @@ export class Lottery extends Component {
     }
 
     generateMegaLotto(){
-    this.setState({megaNumbers: this.numberHelper('mega')});
+        let megaDrawValue = this.numberHelper('mega');
+        this.setState({megaNumbers: megaDrawValue, megaNumberArchive: [...this.state.megaNumberArchive, megaDrawValue]});
     }
 
     generatePowerLotto(){
-    this.setState({powerNumbers: this.numberHelper('power')});
+        let powerDrawValue = this.numberHelper('power');
+        this.setState({powerNumbers: powerDrawValue,  powerNumberArchive: [...this.state.powerNumberArchive, powerDrawValue]});
     }
 
   render() {
     return (
         <div className="Lottery">
-            <h1>Lotter Draw Generator </h1>
-
+            <h1>Lotter Draw Generator</h1>
+            <h2>MegaMillions</h2>
             <div className="Lottery-number-display">
                 {this.state.megaNumbers.map((mn) => (
                     <LotteryBall number={mn.number} ballType={mn.ballType}/>
                 ))}
             </div>
             <button className='Lottery-button' onClick={this.generateMegaLotto}>Generate Mega Numbers</button>
-
+            <h2>PowerBall</h2>
             <div className="Lottery-number-display">
                 {this.state.powerNumbers.map((pn) => (
                     <LotteryBall number={pn.number} ballType={pn.ballType}/>
                 ))}
             </div>
             <button className='Lottery-button' onClick={this.generatePowerLotto}>Generate Power Numbers</button>
-
+            <div className='Lottery-history'>
+                <div className='Lottery-archive'>
+                    <h2>MegaMillions</h2>
+                    {this.state.megaNumberArchive.map((megaNum) => (
+                        <LotteryNumberDraw lottoNumberValue={megaNum}/>
+                    ))}
+                </div>
+                <div className='Lottery-archive'>
+                    <h2>PowerBall</h2>
+                </div>
+            </div>
         </div>
     )
   }
