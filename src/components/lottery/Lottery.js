@@ -72,13 +72,21 @@ export class Lottery extends Component {
 
     numberHelper(lotto){
     let lottoNumbers = [];
+    let ref = [];
     for (let i = 0; i < 5; i++) {
         let numObject = {};
         let numValue = Math.floor(Math.random()*this.props.numberMax) + 1;
+        console.log(`ref: ${ref} || numValue: ${numValue}`);
+        while(ref.includes(numValue)){
+            numValue = Math.floor(Math.random()*this.props.numberMax) + 1;
+        }
         numObject['number'] = numValue;
         numObject['ballType'] = 'regular-draw';
         lottoNumbers.push(numObject);
+        ref.push(numValue);
     }
+
+    console.log(`${ref}`);
 
     let sortedLottoNumbers = this.numberMaxSort(lottoNumbers);
     
