@@ -18,7 +18,12 @@ export class LotteryBall extends Component {
     return (
       
       <div className={ballClass}>
-        <div className="LottoBall-number">{this.props.number}</div>
+        {this.props.number !== null ? (
+          <div className="LottoBall-number">{this.props.number}</div>
+        ) : (
+          <div className="LottoBall-number"></div>
+        )}
+        {/* <div className="LottoBall-number">{this.props.number}</div> */}
       </div>
       
     )

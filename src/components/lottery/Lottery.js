@@ -8,7 +8,23 @@ export class Lottery extends Component {
     static defaultProps = {
         numberMax: 70,
         megaMax: 25,
-        powerMax: 26
+        powerMax: 26,
+        emptyMegaDraw: [
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'megaBall'},
+        ],
+        emptyPowerDraw: [
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'regular-draw'},
+            {"number": null, 'ballType': 'powerBall'},
+        ],
     };
 
     constructor(props){
@@ -87,16 +103,22 @@ export class Lottery extends Component {
             <h1>Lotter Draw Generator</h1>
             <h2>MegaMillions</h2>
             <div className="Lottery-number-display">
-                {this.state.megaNumbers.map((mn) => (
-                    <LotteryBall number={mn.number} ballType={mn.ballType}/>
-                ))}
+                {this.state.megaNumbers.length ? (
+                    this.state.megaNumbers.map((mn) => (<LotteryBall number={mn.number} ballType={mn.ballType}/>))
+                ) : (
+                    this.props.emptyMegaDraw.map((mn) => (<LotteryBall number={mn.number} ballType={mn.ballType}/>))
+                    )
+                }
             </div>
             <button className='Lottery-button' onClick={this.generateMegaLotto}>Generate Mega Numbers</button>
             <h2>PowerBall</h2>
             <div className="Lottery-number-display">
-                {this.state.powerNumbers.map((pn) => (
-                    <LotteryBall number={pn.number} ballType={pn.ballType}/>
-                ))}
+                {this.state.powerNumbers.length ? (
+                    this.state.powerNumbers.map((pn) => (<LotteryBall number={pn.number} ballType={pn.ballType}/>))
+                ) : (
+                    this.props.emptyPowerDraw.map((pn) => (<LotteryBall number={pn.number} ballType={pn.ballType}/>))
+                    )
+                }
             </div>
             <button className='Lottery-button' onClick={this.generatePowerLotto}>Generate Power Numbers</button>
             <div className='Lottery-history'>
