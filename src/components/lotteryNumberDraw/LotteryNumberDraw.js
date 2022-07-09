@@ -7,7 +7,7 @@ export class LotteryNumberDraw extends Component {
     return (
       <div className='LotteryNumberDraw'>
         {this.props.lottoNumberValue.map((num) => (
-            <div className={`LotteryNumberDraw-numberValue ${num.ballType}`}>{num.number}</div>
+            <div className={`LotteryNumberDraw-numberValue LotteryNumberDraw-${num.ballType}`}>{num.number}</div>
         ))}
       </div>
     )

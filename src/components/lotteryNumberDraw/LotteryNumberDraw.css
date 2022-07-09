@@ -33,3 +33,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.LotteryNumberDraw-megaBall{
+    background-color: #f2a71c;
+    color: black;
+}
+
+.LotteryNumberDraw-powerBall{
+    background-color: #000000;
+    color: #ffffff;
+}

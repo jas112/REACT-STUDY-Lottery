@@ -108,6 +108,9 @@ export class Lottery extends Component {
                 </div>
                 <div className='Lottery-archive'>
                     <h2>PowerBall</h2>
+                    {this.state.powerNumberArchive.map((powerNum) => (
+                        <LotteryNumberDraw lottoNumberValue={powerNum}/>
+                    ))}
                 </div>
             </div>
         </div>
