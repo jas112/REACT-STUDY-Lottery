@@ -37,6 +37,21 @@ export class Lottery extends Component {
     };
     this.generateMegaLotto = this.generateMegaLotto.bind(this);
     this.generatePowerLotto = this.generatePowerLotto.bind(this);
+    this.resetMega = this.resetMega.bind(this);
+    this.resetPower = this.resetPower.bind(this);
+    this. resetLotto = this.resetLotto.bind(this);
+    }
+
+    resetMega(){
+        this.setState({megaNumbers: [], megaNumberArchive: []});
+    }
+
+    resetPower(){
+        this.setState({powerNumbers: [], powerNumberArchive: []});
+    }
+
+    resetLotto(){
+        this.setState({megaNumbers: [], megaNumberArchive: [], powerNumbers: [], powerNumberArchive: []});
     }
 
     numberMaxSort(arr){
@@ -108,8 +123,11 @@ export class Lottery extends Component {
   render() {
     return (
         <div className="Lottery">
+
             <h1>Lotter Draw Generator</h1>
+
             <h2>MegaMillions</h2>
+
             <div className="Lottery-number-display">
                 {this.state.megaNumbers.length ? (
                     this.state.megaNumbers.map((mn) => (<LotteryBall number={mn.number} ballType={mn.ballType}/>))
@@ -118,8 +136,11 @@ export class Lottery extends Component {
                     )
                 }
             </div>
+
             <button className='Lottery-button' onClick={this.generateMegaLotto}>Generate Mega Numbers</button>
+
             <h2>PowerBall</h2>
+
             <div className="Lottery-number-display">
                 {this.state.powerNumbers.length ? (
                     this.state.powerNumbers.map((pn) => (<LotteryBall number={pn.number} ballType={pn.ballType}/>))
@@ -128,21 +149,37 @@ export class Lottery extends Component {
                     )
                 }
             </div>
+
             <button className='Lottery-button' onClick={this.generatePowerLotto}>Generate Power Numbers</button>
+
+            <div className='Lottery-button-reset-display'>
+
+                <button className='Lottery-button-reset' onClick={this.resetMega}>Reset Mega</button>
+
+                <button className='Lottery-button-reset' onClick={this.resetPower}>Reset Power</button>
+
+                <button className='Lottery-button-reset' onClick={this.resetLotto}>Reset All</button>
+
+            </div>
+
             <div className='Lottery-history'>
+
                 <div className='Lottery-archive'>
                     <h2>MegaMillions</h2>
                     {this.state.megaNumberArchive.map((megaNum) => (
                         <LotteryNumberDraw lottoNumberValue={megaNum}/>
                     ))}
                 </div>
+
                 <div className='Lottery-archive'>
                     <h2>PowerBall</h2>
                     {this.state.powerNumberArchive.map((powerNum) => (
                         <LotteryNumberDraw lottoNumberValue={powerNum}/>
                     ))}
                 </div>
+
             </div>
+
         </div>
     )
   }
